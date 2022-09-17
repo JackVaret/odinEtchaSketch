@@ -21,8 +21,9 @@
       // Create a function that makes a column of divs
      function boxCreate(boxNumber)
      {
-        
-        
+        // Create an element that represents a column
+        const column = document.createElement('div');
+        column.classList.add('column');
         // Write a for loop to fill a column with a user selected amount of boxes
         // Create a variable that asks for the user's box amount
         for(let i = 0; i<boxNumber;i++) 
@@ -34,12 +35,12 @@
             // Grant each div the grid class
             grid.classList.add('grid');            
             // Append each grid to the column
-            container.appendChild(grid);
+            column.appendChild(grid);
             
             
 
         }
-       
+        container.appendChild(column);
         container.addEventListener("mouseover", function(e) {
             target= e.target;
             if (target.matches("div.grid")) {
