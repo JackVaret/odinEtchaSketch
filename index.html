@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-Sketch</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="gridContainer"></div>
+    
+    <script>
+        // Objective: Create a 16x16 grid of square divs
+      // Do this by writing a for loop to fill the grid container with 256 divs
+      // Create a constant for the grid container
+      const container = document.querySelector(".gridContainer") ;
+      // Create a function that toggles a class on a given element
+      
+      // Create a function that makes a column of divs
+     function boxCreate(boxNumber)
+     {
+        
+        
+        // Write a for loop to fill a column with a user selected amount of boxes
+        // Create a variable that asks for the user's box amount
+        for(let i = 0; i<boxNumber;i++) 
+        {
+            // Create a grid
+            let grid = document.createElement('div');
+            // Give it empty text
+            grid.innerText = "";
+            // Grant each div the grid class
+            grid.classList.add('grid');            
+            // Append each grid to the column
+            container.appendChild(grid);
+            
+            
+
+        }
+       
+        container.addEventListener("mouseover", function(e) {
+            target= e.target;
+            if (target.matches("div.grid")) {
+                fillColor(target);
+            }
+        })
+        
+        
+     }
+     // create a function that toggles a class list of a given element
+     function fillColor(target)
+     {
+        target.style.backgroundColor = 'black';
+     }
+     // Create a function that does the columnCreate a user selected number of  times
+     function makeGrid(rowNumber,boxNumber)
+     {
+        for (let r = 0; r<rowNumber;r++)
+        boxCreate(boxNumber)
+     }
+    function gridPrompt()
+    {
+        let number = prompt("Choose a grid size!", 10);
+        makeGrid(number,number);
+    }
+    gridPrompt();
+    
+    </script>
+</body>
+</html>
