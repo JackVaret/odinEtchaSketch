@@ -14,7 +14,7 @@
     <script>
         // Objective: Create a 16x16 grid of square divs
     const gridContainer = document.querySelector('.gridContainer');
-    
+    let target;
     // Make a grid
     function makeGrid (num) {
         for(let i = 0; i<num; i++)
@@ -34,6 +34,21 @@
             makeGrid(colNumber);
         }
     }
+    // Set up hover effect
+    function changeColor(target) 
+    {
+        target.style.backgroundColor = 'black';
+    }
+    gridContainer.addEventListener("mouseover", function (e) 
+    {
+    target = e.target;
+
+        if (target.matches("div.grid")) 
+        {
+            changeColor(target);
+        }
+    });
+    
     makeEtch(50,50);
     </script>
 </body>
