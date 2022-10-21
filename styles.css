@@ -8,19 +8,20 @@ body
 }
 .gridContainer
 {
-   display:flex;
-   flex-wrap:wrap;
-    width:500px;
+    display:grid;
+    justify-content:center;
+    margin:auto;
+    grid-template-columns: repeat(var(--colNumber), 1fr);
+    grid-template-rows: repeat(var(--rowNumber), 1fr);
     height:500px;
-    border:1px solid black;
-    
-    
+    width:500px;
+    border: 2px solid black;
+
 }
 
 .grid
 {
-    background-color:white;
-    padding:3px;
+    display:flex;
     border:1px solid black;
     
 
