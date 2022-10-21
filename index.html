@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <div class ="buttonContainer"><button class= "gridPrompt">Prompt</button></div>
     <div class="gridContainer"></div>
     
     <script>
@@ -26,12 +26,12 @@
     }
     
     // Make the EtchASketch
-    function makeEtch (rowNumber, colNumber) {
+    function makeEtch (rowNumber) {
         gridContainer.style.setProperty('--rowNumber',rowNumber);
-        gridContainer.style.setProperty('--colNumber',colNumber);
+        gridContainer.style.setProperty('--colNumber',rowNumber);
         for (let r = 0; r<rowNumber; r++)
         {
-            makeGrid(colNumber);
+            makeGrid(rowNumber);
         }
     }
     // Set up hover effect
@@ -48,8 +48,20 @@
             changeColor(target);
         }
     });
-    
-    makeEtch(50,50);
+    // Create a prompt button
+    const promptbtn = document.querySelector(".gridPrompt");
+    promptbtn.addEventListener("click", function() 
+    {
+        clearGrid(gridContainer);
+        makeEtch(parseInt(prompt("What kind of x by x grid do you want?")));
+    })
+    // Create a function to reset the current grid
+    function clearGrid(parent)
+    {
+        while(parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
+    }
     </script>
 </body>
 </html>
