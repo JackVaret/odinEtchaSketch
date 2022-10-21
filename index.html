@@ -13,8 +13,28 @@
     
     <script>
         // Objective: Create a 16x16 grid of square divs
+    const gridContainer = document.querySelector('.gridContainer');
     
+    // Make a grid
+    function makeGrid (num) {
+        for(let i = 0; i<num; i++)
+        {
+            grid = document.createElement('div');
+            grid.classList.add('grid');
+            gridContainer.appendChild(grid);
+        }
+    }
     
+    // Make the EtchASketch
+    function makeEtch (rowNumber, colNumber) {
+        gridContainer.style.setProperty('--rowNumber',rowNumber);
+        gridContainer.style.setProperty('--colNumber',colNumber);
+        for (let r = 0; r<rowNumber; r++)
+        {
+            makeGrid(colNumber);
+        }
+    }
+    makeEtch(50,50);
     </script>
 </body>
 </html>
