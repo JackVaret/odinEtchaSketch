@@ -8,22 +8,17 @@ body
 }
 .gridContainer
 {
-    display:flex;
-    flex-wrap:wrap;
+   display:flex;
+   flex-wrap:wrap;
     width:500px;
     height:500px;
     border:1px solid black;
     
     
 }
-.column
-{
-   height:100%;
-   
-}
+
 .grid
 {
-    display:flex;
     background-color:white;
     padding:3px;
     border:1px solid black;
