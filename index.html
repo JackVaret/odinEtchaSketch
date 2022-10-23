@@ -14,8 +14,7 @@
         <input type="number" id = "red">
         <input type="number" id = "blue">
         <input type="number" id = "green">
-
-
+        <button class="clearGrid">Clear</button>
 
     </div>
     
@@ -106,8 +105,19 @@
             parent.removeChild(parent.firstChild);
         }
     }
+   // Add this function as an event listener to the clear button
+   const eraser = document.querySelector(".clearGrid");
+   eraser.addEventListener("click", function ()
+   {
+        clearGrid(gridContainer);
+   });
+   // Add function to reset the color values
+   function clearColors()
+   {
+    // Set every grid's color to white
+    
+   }
    
-
     </script>
 </body>
 </html>
