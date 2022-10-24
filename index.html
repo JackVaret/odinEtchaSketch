@@ -47,8 +47,9 @@
     let blue = document.querySelector("#blue");
     let green = document.querySelector("#green");
     let r = 0, b = 0, g = 0;
+    let grids = document.querySelectorAll(".grid");
 
-    // Set up hover effect
+    // Add color changing function
     function changeColor(target) 
     {
         if(r==0 && b ==0 && g==0)
@@ -62,6 +63,7 @@
         }
 
     }
+    // Add color changing function to the gridcontainer
     gridContainer.addEventListener("click", function (e) 
     {
     target = e.target;
@@ -71,6 +73,8 @@
             changeColor(target);
         }
     });
+   
+    
     // Set up Numeric color picker events
     red.addEventListener("keyup", function (event)
     {
@@ -94,10 +98,12 @@
     // Create a prompt button
     const promptbtn = document.querySelector(".gridPrompt");
     promptbtn.addEventListener("click", function() 
-    {
+    {   // when the prompt button is clicked, clear the grid, make a new grid based on user input, and reassign the value of every grid
         clearGrid(gridContainer);
         makeEtch(parseInt(prompt("What kind of x by x grid do you want?")));
+        grids = document.querySelectorAll(".grid");
     })
+
     // Create a function to reset the current grid
     function clearGrid(parent)
     {
@@ -105,18 +111,17 @@
             parent.removeChild(parent.firstChild);
         }
     }
-   // Add this function as an event listener to the clear button
-   const eraser = document.querySelector(".clearGrid");
+    // Add function to reset the color values to the eraser button
+    const eraser = document.querySelector(".clearGrid");
    eraser.addEventListener("click", function ()
    {
-        clearGrid(gridContainer);
+        // Add a function to clear grid colors
+        grids.forEach(grid =>
+        {
+            grid.style.backgroundColor = "white";
+        })
    });
-   // Add function to reset the color values
-   function clearColors()
-   {
-    // Set every grid's color to white
-    
-   }
+   
    
     </script>
 </body>
