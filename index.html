@@ -11,10 +11,13 @@
     <div class="gridContainer"></div>
     <div class ="buttonContainer">
         <button class= "gridPrompt">Select Number</button>
+        <button class= "whiteOut">WhiteOutMode</button>
         <input type="number" id = "red">
         <input type="number" id = "blue">
         <input type="number" id = "green">
         <button class="clearGrid">Clear</button>
+        <input id="colorPicker" type="color" value="#333333" />
+
 
     </div>
     
@@ -29,6 +32,8 @@
         {
             grid = document.createElement('div');
             grid.classList.add('grid');
+            grid.addEventListener('mouseover', changeColor);
+            grid.addEventListener('mousedown', changeColor);
             gridContainer.appendChild(grid);
         }
     }
@@ -48,31 +53,31 @@
     let green = document.querySelector("#green");
     let r = 0, b = 0, g = 0;
     let grids = document.querySelectorAll(".grid");
-
+    let mouseDown = false
+    document.body.onmousedown = () => (mouseDown = true)
+    document.body.onmouseup = () => (mouseDown = false)
     // Add color changing function
-    function changeColor(target) 
+    function changeColor(e) 
     {
-        if(r==0 && b ==0 && g==0)
+        if(e.type ==='mouseover' && !mouseDown) return
+        if(whiteout)
         {
-            target.style.backgroundColor = 'black';
+            e.target.style.backgroundColor = 'white';
+        }
+        else if(r==0 && b ==0 && g==0)
+        {
+            e.target.style.backgroundColor = 'black';
     
         }
+        
         else
         {
-            target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+
         }
 
     }
-    // Add color changing function to the gridcontainer
-    gridContainer.addEventListener("click", function (e) 
-    {
-    target = e.target;
-
-        if (target.matches("div.grid")) 
-        {
-            changeColor(target);
-        }
-    });
+   
    
     
     // Set up Numeric color picker events
@@ -121,7 +126,18 @@
             grid.style.backgroundColor = "white";
         })
    });
-   
+   // Add a whiteout button
+   let whiteout = false;
+   const whiteOut = document.querySelector('.whiteOut');
+   whiteOut.addEventListener("click", function ()
+   {
+        if(!whiteout)
+            whiteout = true;
+        else
+        {
+            whiteout = false;
+        }
+   });
    
     </script>
 </body>
