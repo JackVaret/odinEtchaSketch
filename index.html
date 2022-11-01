@@ -8,18 +8,26 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="gridContainer"></div>
-    <div class ="buttonContainer">
+    <div class="header">Etch-a-Sketch</div>
+    <div class="etch">
+            <div class="rightcircle"></div>
+            <div class ="leftcircle"></div>
+        <div class="gridContainer"></div>
+    </div>
+    <div class="options">
+        <div class ="buttonContainer">
         <button class= "gridPrompt">Select Number</button>
         <button class= "whiteOut">WhiteOutMode</button>
+        <button class ="rainbow">RainbowMode</button>
         <input type="number" id = "red">
         <input type="number" id = "blue">
         <input type="number" id = "green">
         <button class="clearGrid">Clear</button>
-        <input id="colorPicker" type="color" value="#333333" />
-
-
+    
     </div>
+    </div>
+    
+    
     
     
     <script>
@@ -54,15 +62,22 @@
     let r = 0, b = 0, g = 0;
     let grids = document.querySelectorAll(".grid");
     let mouseDown = false
+    
     document.body.onmousedown = () => (mouseDown = true)
     document.body.onmouseup = () => (mouseDown = false)
     // Add color changing function
+    // Create rainbow table
+    const rainbowTable = ['red','orange','yellow','green','blue','indigo','violet'];
     function changeColor(e) 
     {
         if(e.type ==='mouseover' && !mouseDown) return
         if(whiteout)
         {
             e.target.style.backgroundColor = 'white';
+        }
+        else if(rainBow)
+        {
+            e.target.style.backgroundColor = rainbowTable[Math.floor(Math.random() * 6)];
         }
         else if(r==0 && b ==0 && g==0)
         {
@@ -138,7 +153,18 @@
             whiteout = false;
         }
    });
-   
+   let rainBow = false
+    const rainbow = document.querySelector(".rainbow");
+    rainbow.addEventListener("click", function ()
+    {
+        if(!rainBow)
+        rainBow = true;
+        else{
+            rainBow = false;
+        }
+    })
+   // Create the default grid
+   makeEtch(40);
     </script>
 </body>
 </html>

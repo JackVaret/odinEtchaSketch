@@ -4,7 +4,14 @@ body
     flex-direction:column; 
     justify-content:center;
     align-items:center;
-
+    background-color:#ededed;
+    
+}
+.header
+{
+    font-family:'Courier New', Courier, monospace;
+    font-size:40px;
+    font-weight:bold;
 }
 .gridContainer
 {
@@ -15,8 +22,29 @@ body
     grid-template-rows: repeat(var(--rowNumber), 1fr);
     height:500px;
     width:500px;
-    border: 2px solid black;
+    border: 60px solid red;
+    border-radius:15px;
+    
+}
 
+.etch
+{
+    position:relative;
+}
+
+.leftcircle, .rightcircle
+{
+    position:absolute;
+    height:50px;
+    width:50px;
+    border-radius:100px;
+    border:solid black;
+    bottom:0;
+    background-color:white;
+}
+.rightcircle
+{
+    right:0;
 }
 
 .grid
@@ -24,8 +52,6 @@ body
     display:flex;
     border:1px solid black;
     
-
-
 }
 #red 
 {
