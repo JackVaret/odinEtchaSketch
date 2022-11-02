@@ -5,6 +5,8 @@ body
     justify-content:center;
     align-items:center;
     background-color:#ededed;
+    flex-grow:1;
+    min-height:100vh;
     
 }
 .header
@@ -46,7 +48,31 @@ body
 {
     right:0;
 }
+.options
+{
+    display:flex;
+    justify-content:space-between;
 
+}
+.shameless
+{
+    font-family:'Courier New', Courier, monospace;
+    font-size:30px;
+    text-decoration:none;
+}
+.footer
+{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    width:100%;
+    background-color:rgba(211, 211, 211, 0.76);
+}
+.logo
+{
+    width:100px;
+    height:100px;
+}
 .grid
 {
     display:flex;
@@ -64,4 +90,26 @@ body
 #green
 {
     background-color:green;
+}
+button
+{
+   border-radius:30px;
+   font-size:20px;
+}
+button:hover
+{
+    transform:scale(1.25,1.25);
+}
+input:hover
+{
+    transform:scale(1.25,1.25);
+}
+.rainbow
+{
+    color:grey;
+    background: linear-gradient(90deg,red,orange,yellow,green,blue,indigo,violet);
+}
+input
+{
+    border-radius:30px;
 }

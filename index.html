@@ -16,15 +16,18 @@
     </div>
     <div class="options">
         <div class ="buttonContainer">
-        <button class= "gridPrompt">Select Number</button>
-        <button class= "whiteOut">WhiteOutMode</button>
-        <button class ="rainbow">RainbowMode</button>
+        <button class= "gridPrompt">Choose Grid Size!</button>
+        <button class= "whiteOut">Whiteout</button>
+        <button class ="rainbow">Rainbow</button>
         <input type="number" id = "red">
         <input type="number" id = "blue">
         <input type="number" id = "green">
         <button class="clearGrid">Clear</button>
-    
+        </div>
     </div>
+    <div class="footer">
+    <img src="GithubLogo.png" alt = "Github Logo" class ="logo" >
+    <a href="https://github.com/JackVaret" class ="shameless">JackVaret</a>
     </div>
     
     
@@ -150,10 +153,15 @@
    whiteOut.addEventListener("click", function ()
    {
         if(!whiteout)
+        {
             whiteout = true;
+            whiteOut.style.backgroundColor="grey";
+        }
         else
         {
             whiteout = false;
+            whiteOut.style.backgroundColor="white";
+
         }
    });
    let rainBow = false
@@ -161,10 +169,14 @@
     rainbow.addEventListener("click", function ()
     {
         if(!rainBow)
-        rainBow = true;
+        {
+            rainBow = true;
+            rainbow.style.color="black";
+        }
         else{
             rainBow = false;
-        }
+            rainbow.style.color="grey";
+                }
     })
    // Create the default grid
     </script>
